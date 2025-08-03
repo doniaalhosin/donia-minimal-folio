@@ -65,9 +65,6 @@ export const HeroSection = () => {
           
           {/* Modern subtitle with gradient */}
           <div className="relative fade-in-up delay-2">
-            <h2 className="text-xl md:text-2xl font-light text-muted-foreground mb-2">
-              WordPress Developer
-            </h2>
             <div className="h-px w-16 bg-gradient-to-r from-accent to-transparent mx-auto mb-2"></div>
             <p className="text-lg md:text-xl text-muted-foreground">
               Web Developer & UI Specialist
