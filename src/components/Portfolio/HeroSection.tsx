@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { MapPin, Phone, Mail, Linkedin, Github } from 'lucide-react';
+import { MapPin, Phone, Mail, Linkedin, Github, ArrowDown } from 'lucide-react';
 
 export const HeroSection = () => {
   const contactInfo = [
@@ -17,36 +17,74 @@ export const HeroSection = () => {
     }
   };
 
+  const scrollToAbout = () => {
+    const element = document.querySelector('#about');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center hero-gradient relative">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-20 w-64 h-64 bg-accent/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-accent/3 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-accent/5 to-transparent rounded-full blur-3xl"></div>
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      {/* Modern gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-hero-gradient-start to-hero-gradient-end"></div>
+      
+      {/* Animated background elements */}
+      <div className="absolute inset-0">
+        {/* Floating geometric shapes */}
+        <div className="absolute top-20 left-10 w-2 h-2 bg-accent rounded-full opacity-60 animate-pulse"></div>
+        <div className="absolute top-40 right-20 w-1 h-1 bg-accent rounded-full opacity-40 animate-pulse delay-1000"></div>
+        <div className="absolute bottom-40 left-20 w-1.5 h-1.5 bg-accent rounded-full opacity-50 animate-pulse delay-500"></div>
+        
+        {/* Modern gradient orbs */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-accent/10 via-accent/5 to-transparent rounded-full blur-3xl animate-pulse delay-2000"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-l from-accent/8 via-accent/3 to-transparent rounded-full blur-3xl animate-pulse delay-3000"></div>
+        
+        {/* Subtle grid pattern */}
+        <div className="absolute inset-0 opacity-[0.02]" 
+             style={{
+               backgroundImage: `radial-gradient(circle at 1px 1px, hsl(var(--accent)) 1px, transparent 0)`,
+               backgroundSize: '40px 40px'
+             }}></div>
       </div>
 
-      <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
-        {/* Main headline */}
-        <h1 className="text-5xl md:text-7xl font-bold text-primary mb-6 fade-in-up">
-          DONIA ALHOSIN
-          <br />
-          <span className="text-4xl md:text-6xl">MOHAMED</span>
-        </h1>
+      <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
+        {/* Status badge */}
+        <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-2 mb-8 fade-in-up">
+          <div className="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
+          <span className="text-sm font-medium text-accent">Available for Projects</span>
+        </div>
 
-        {/* Subheadline */}
-        <p className="text-xl md:text-2xl text-muted-foreground mb-8 font-light fade-in-up delay-1">
-          WordPress Developer | Web Developer & UI Specialist
-        </p>
+        {/* Modern typography hierarchy */}
+        <div className="space-y-4 mb-8">
+          <h1 className="text-6xl md:text-8xl font-bold text-primary fade-in-up delay-1">
+            <span className="block">DONIA</span>
+            <span className="block text-5xl md:text-7xl font-light text-muted-foreground">ALHOSIN</span>
+            <span className="block text-4xl md:text-6xl font-medium">MOHAMED</span>
+          </h1>
+          
+          {/* Modern subtitle with gradient */}
+          <div className="relative fade-in-up delay-2">
+            <h2 className="text-xl md:text-2xl font-light text-muted-foreground mb-2">
+              WordPress Developer
+            </h2>
+            <div className="h-px w-16 bg-gradient-to-r from-accent to-transparent mx-auto mb-2"></div>
+            <p className="text-lg md:text-xl text-muted-foreground">
+              Web Developer & UI Specialist
+            </p>
+          </div>
+        </div>
 
-        {/* Contact info inline list */}
-        <div className="flex flex-wrap items-center justify-center gap-6 mb-12 fade-in-up delay-2">
+        {/* Modernized contact info */}
+        <div className="flex flex-wrap items-center justify-center gap-6 mb-12 fade-in-up delay-3">
           {contactInfo.map((item, index) => {
             const Icon = item.icon;
             const content = (
-              <div className="flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors">
-                <Icon size={18} />
-                <span className="text-sm">{item.text}</span>
+              <div className="group flex items-center gap-3 px-4 py-2 rounded-full bg-card/50 border border-border/50 hover:border-accent/30 transition-all duration-300 hover:scale-105">
+                <div className="flex items-center justify-center w-8 h-8 rounded-full bg-accent/10 group-hover:bg-accent/20 transition-colors">
+                  <Icon size={16} className="text-accent" />
+                </div>
+                <span className="text-sm font-medium text-foreground">{item.text}</span>
               </div>
             );
 
@@ -66,28 +104,40 @@ export const HeroSection = () => {
           })}
         </div>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 fade-in-up delay-3">
+        {/* Modern CTA buttons */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 fade-in-up delay-4">
           <Button 
             variant="cta" 
-            size="lg"
+            size="xl"
             onClick={scrollToProjects}
-            className="interactive min-w-[200px]"
+            className="interactive min-w-[220px] group"
           >
-            View My Work
+            <span>Explore My Work</span>
+            <ArrowDown size={18} className="ml-2 group-hover:translate-y-1 transition-transform" />
           </Button>
           <Button 
             variant="cta-outline" 
-            size="lg"
-            className="interactive min-w-[200px]"
+            size="xl"
+            className="interactive min-w-[220px]"
             onClick={() => {
-              // This would typically download a CV file
               window.open('/cv-donia-alhosin.pdf', '_blank');
             }}
           >
-            Download CV
+            Download Resume
           </Button>
         </div>
+
+        {/* Scroll indicator */}
+        <button 
+          onClick={scrollToAbout}
+          className="interactive animate-bounce hover:animate-none transition-all fade-in-up delay-5"
+          aria-label="Scroll to about section"
+        >
+          <div className="flex flex-col items-center gap-2 text-muted-foreground hover:text-accent transition-colors">
+            <span className="text-xs font-medium tracking-wider uppercase">Scroll Down</span>
+            <ArrowDown size={20} />
+          </div>
+        </button>
       </div>
     </section>
   );
