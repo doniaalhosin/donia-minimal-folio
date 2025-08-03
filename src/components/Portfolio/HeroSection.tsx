@@ -57,10 +57,9 @@ export const HeroSection = () => {
 
         {/* Modern typography hierarchy */}
         <div className="space-y-4 mb-8">
-          <h1 className="text-6xl md:text-8xl font-bold text-primary fade-in-up delay-1">
-            <span className="block">DONIA</span>
-            <span className="block text-5xl md:text-7xl font-light text-muted-foreground">ALHOSIN</span>
-            <span className="block text-4xl md:text-6xl font-medium">MOHAMED</span>
+          <h1 className="text-6xl md:text-4xl font-bold text-primary fade-in-up delay-1">
+            <span className="">DONIA</span>
+            <span className=" text-5xl md:text-7xl font-light text-muted-foreground">ALHOSIN</span>
           </h1>
           
           {/* Modern subtitle with gradient */}
